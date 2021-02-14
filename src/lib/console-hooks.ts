@@ -17,7 +17,7 @@ export function ConsoleHooks({
 }: ConsoleHooksOptions = defaultConsoleHooksOptions) {
   return function (target: any) {
     const componentName = target.name;
-    handleLifeCycleHook(
+    handleLifecycleHook(
       'ngOnInit',
       componentName,
       target.prototype,
@@ -27,35 +27,35 @@ export function ConsoleHooks({
   };
 }
 
-const handleLifeCycleHook = (
-  lifeCycleHookName: LifecycleHooksNames,
+const handleLifecycleHook = (
+  lifecycleHookName: LifecycleHooksNames,
   componentName: string,
   prototype: any,
   phase: Phase,
   logNonImplemented: boolean
 ) => {
-  const original = prototype[lifeCycleHookName];
+  const original = prototype[lifecycleHookName];
   if (typeof original === 'function') {
-    prototype[lifeCycleHookName] = () => {
+    prototype[lifecycleHookName] = () => {
       if (phase === 'before' || phase === 'beforeAndAfter') {
         const extraBeforeInfo = phase === 'beforeAndAfter' ? ' (start)' : '';
         console.log(
-          `${componentName} ======> ${lifeCycleHookName}${extraBeforeInfo}`
+          `${componentName} ======> ${lifecycleHookName}${extraBeforeInfo}`
         );
       }
       original();
       if (phase === 'after' || phase === 'beforeAndAfter') {
         const extraAfterInfo = phase === 'beforeAndAfter' ? ' (end)' : '';
         console.log(
-          `${componentName} ======> ${lifeCycleHookName}${extraAfterInfo}`
+          `${componentName} ======> ${lifecycleHookName}${extraAfterInfo}`
         );
       }
     };
   } else {
     if (logNonImplemented) {
-      prototype[lifeCycleHookName] = () =>
+      prototype[lifecycleHookName] = () =>
         console.log(
-          `${componentName} ======> ${lifeCycleHookName} (non-implemented)`
+          `${componentName} ======> ${lifecycleHookName} (non-implemented)`
         );
     }
   }
