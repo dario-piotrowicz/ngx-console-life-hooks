@@ -74,16 +74,14 @@ const handleLifecycleHook = (
         }
       }
     };
-  } else {
-    if (logNonImplemented) {
-      const consoleLogMessage = `${componentName} ======> ${lifecycleHookName} (non-implemented)`;
-      prototype[lifecycleHookName] = (args: any) => {
-        if (args) {
-          console.log(consoleLogMessage, { arguments: args });
-        } else {
-          console.log(consoleLogMessage);
-        }
-      };
-    }
+  } else if (logNonImplemented) {
+    const consoleLogMessage = `${componentName} ======> ${lifecycleHookName} (non-implemented)`;
+    prototype[lifecycleHookName] = (args: any) => {
+      if (args) {
+        console.log(consoleLogMessage, { arguments: args });
+      } else {
+        console.log(consoleLogMessage);
+      }
+    };
   }
 };
