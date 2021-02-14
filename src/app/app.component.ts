@@ -6,10 +6,6 @@ import { ConsoleHooks } from '../lib/console-hooks';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-@ConsoleHooks({
-  phase: 'beforeAndAfter',
-  logNonImplemented: true,
-})
 export class AppComponent {
   public showLabel = true;
 }
