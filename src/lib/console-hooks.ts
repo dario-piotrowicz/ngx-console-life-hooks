@@ -25,6 +25,13 @@ export function ConsoleHooks({
       logNonImplemented
     );
     handleLifecycleHook(
+      'ngOnChanges',
+      componentName,
+      target,
+      phase,
+      logNonImplemented
+    );
+    handleLifecycleHook(
       'ngOnDestroy',
       componentName,
       target,

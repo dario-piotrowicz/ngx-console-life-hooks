@@ -1,1 +1,6 @@
-<p>The label is: {{ label }}"</p>
+<p>
+  The label is: "
+  <span [ngClass]="{ bold: labelIsBold }">
+    {{ label }} </span
+  >"
+</p>

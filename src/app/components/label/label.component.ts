@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ConsoleHooks } from 'src/lib/console-hooks';
 
 @ConsoleHooks({
@@ -12,6 +12,7 @@ import { ConsoleHooks } from 'src/lib/console-hooks';
 })
 export class LabelComponent implements OnInit {
   public label = 'default-label';
+  @Input() public labelIsBold = false;
 
   constructor() {}
 

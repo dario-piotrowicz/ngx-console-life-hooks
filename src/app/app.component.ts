@@ -8,4 +8,5 @@ import { ConsoleHooks } from '../lib/console-hooks';
 })
 export class AppComponent {
   public showLabel = true;
+  public labelIsBold: boolean = false;
 }
