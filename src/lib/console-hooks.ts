@@ -2,8 +2,8 @@ import { defaultConsoleHooksOptions } from './default-console-hooks-options';
 import { ConsoleHooksOptions, Phase } from './console-hooks-options.model';
 
 type LifecycleHooksNames =
-  | 'ngOnInit'
   | 'ngOnChanges'
+  | 'ngOnInit'
   | 'ngDoCheck'
   | 'ngAfterContentInit'
   | 'ngAfterContentChecked'
@@ -51,27 +51,38 @@ const handleLifecycleHook = (
   const prototype = target.prototype;
   const original = prototype[lifecycleHookName];
   if (typeof original === 'function') {
-    prototype[lifecycleHookName] = function () {
+    prototype[lifecycleHookName] = function (args: any) {
+      const extraBeforeInfo = phase === 'beforeAndAfter' ? ' (start)' : '';
+      const startConsoleLogMessage = `${componentName} ======> ${lifecycleHookName}${extraBeforeInfo}`;
+
+      const extraAfterInfo = phase === 'beforeAndAfter' ? ' (end)' : '';
+      const afterConsoleLogMessage = `${componentName} ======> ${lifecycleHookName}${extraAfterInfo}`;
       if (phase === 'before' || phase === 'beforeAndAfter') {
-        const extraBeforeInfo = phase === 'beforeAndAfter' ? ' (start)' : '';
-        console.log(
-          `${componentName} ======> ${lifecycleHookName}${extraBeforeInfo}`
-        );
+        if (args) {
+          console.log(startConsoleLogMessage, { arguments: args });
+        } else {
+          console.log(startConsoleLogMessage);
+        }
       }
       original.apply(this);
       if (phase === 'after' || phase === 'beforeAndAfter') {
-        const extraAfterInfo = phase === 'beforeAndAfter' ? ' (end)' : '';
-        console.log(
-          `${componentName} ======> ${lifecycleHookName}${extraAfterInfo}`
-        );
+        if (args) {
+          console.log(afterConsoleLogMessage, { arguments: args });
+        } else {
+          console.log(afterConsoleLogMessage);
+        }
       }
     };
   } else {
     if (logNonImplemented) {
-      prototype[lifecycleHookName] = () =>
-        console.log(
-          `${componentName} ======> ${lifecycleHookName} (non-implemented)`
-        );
+      prototype[lifecycleHookName] = (args: any) => {
+        const consoleLogMessage = `${componentName} ======> ${lifecycleHookName} (non-implemented)`;
+        if (args) {
+          console.log(consoleLogMessage, { arguments: args });
+        } else {
+          console.log(consoleLogMessage);
+        }
+      };
     }
   }
 };
