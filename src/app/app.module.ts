@@ -1,13 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
-import { LabelComponent } from './example-using-label/label/label.component';
-import { ExampleUsingLabelComponent } from './example-using-label/example-using-label.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [AppComponent, LabelComponent, ExampleUsingLabelComponent],
-  imports: [BrowserModule],
+  declarations: [AppComponent, HomeComponent],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
