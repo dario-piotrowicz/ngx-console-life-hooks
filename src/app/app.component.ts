@@ -11,9 +11,5 @@ import { ConsoleHooks } from '../lib/console-hooks';
   logNonImplemented: true,
 })
 export class AppComponent {
-  title = 'ngx-console-life-hooks';
-
-  ngOnInit() {
-    console.log('ng On Init!!!!!');
-  }
+  public showLabel = true;
 }
