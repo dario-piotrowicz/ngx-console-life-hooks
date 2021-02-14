@@ -7,27 +7,33 @@ export function ConsoleHooks({
 }: ConsoleHooksOptions = defaultConsoleHooksOptions) {
   return function (target: any) {
     const componentName = target.name;
-    handleNgOnInit(componentName, target.prototype, phase, logNonImplemented);
+    handleLifeCycleHook(
+      'ngOnInit',
+      componentName,
+      target.prototype,
+      phase,
+      logNonImplemented
+    );
   };
 }
 
-const handleNgOnInit = (
+const handleLifeCycleHook = (
+  lifeCycleHookName: string,
   componentName: string,
   prototype: any,
   phase: Phase,
   logNonImplemented: boolean
 ) => {
-  const originalNgOnInit = prototype.ngOnInit;
-  const lifeCycleHookName = 'ngOnInit';
-  if (typeof originalNgOnInit === 'function') {
-    prototype.ngOnInit = () => {
+  const original = prototype[lifeCycleHookName];
+  if (typeof original === 'function') {
+    prototype[lifeCycleHookName] = () => {
       if (phase === 'before' || phase === 'beforeAndAfter') {
         const extraBeforeInfo = phase === 'beforeAndAfter' ? ' (start)' : '';
         console.log(
           `${componentName} ======> ${lifeCycleHookName}${extraBeforeInfo}`
         );
       }
-      originalNgOnInit();
+      original();
       if (phase === 'after' || phase === 'beforeAndAfter') {
         const extraAfterInfo = phase === 'beforeAndAfter' ? ' (end)' : '';
         console.log(
@@ -37,7 +43,7 @@ const handleNgOnInit = (
     };
   } else {
     if (logNonImplemented) {
-      prototype.ngOnInit = () =>
+      prototype[lifeCycleHookName] = () =>
         console.log(
           `${componentName} ======> ${lifeCycleHookName} (non-implemented)`
         );
