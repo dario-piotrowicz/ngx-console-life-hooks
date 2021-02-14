@@ -1,0 +1,43 @@
+.title-section {
+  text-align: center;
+
+  .title {
+    margin-bottom: 0.5rem;
+  }
+
+  .sub-title {
+    margin-top: 0;
+    font-size: 3rem;
+  }
+}
+
+.example-using-label {
+  padding: 5rem;
+  margin: 5rem;
+  border-radius: 5px;
+  background-color: rgb(161, 208, 223);
+  padding-bottom: 0.5rem;
+  height: 15rem;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+
+  .buttons-container {
+    display: flex;
+    justify-content: space-evenly;
+
+    .btn {
+      flex: 1;
+      margin: 0 1rem;
+      font-size: 2rem;
+    }
+  }
+
+  .label {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.3rem;
+  }
+}

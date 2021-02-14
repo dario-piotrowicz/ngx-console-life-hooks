@@ -1,8 +1,23 @@
-<h1>Ngx Console Life Hooks - Demo App</h1>
-<button (click)="showLabel = !showLabel">
-  {{ showLabel ? "Hide" : "Show" }} Label
-</button>
-<button (click)="labelIsBold = !labelIsBold" [disabled]="!showLabel">
-  Make the Label's font {{ labelIsBold ? "standard" : "bold" }}
-</button>
-<app-label *ngIf="showLabel" [labelIsBold]="labelIsBold"></app-label>
+<div class="title-section">
+  <h1 class="title">Ngx Console Life Hooks</h1>
+  <h2 class="sub-title">Demo App</h2>
+</div>
+<div class="example-using-label">
+  <div class="buttons-container">
+    <button class="btn" (click)="showLabel = !showLabel">
+      {{ showLabel ? "Hide" : "Show" }} Label
+    </button>
+    <button
+      class="btn"
+      (click)="labelIsBold = !labelIsBold"
+      [disabled]="!showLabel"
+    >
+      Make the Label's font {{ labelIsBold ? "standard" : "bold" }}
+    </button>
+  </div>
+  <app-label
+    class="label"
+    *ngIf="showLabel"
+    [labelIsBold]="labelIsBold"
+  ></app-label>
+</div>
