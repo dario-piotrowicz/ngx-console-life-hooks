@@ -56,7 +56,7 @@ const handleLifecycleHook = (
       }
       original.apply(this);
       if (phase === 'after' || phase === 'beforeAndAfter') {
-        consoleLogForHook(afterConsoleLogMessage, { arguments: args });
+        consoleLogForHook(afterConsoleLogMessage);
       }
     };
   } else if (logNonImplemented) {
