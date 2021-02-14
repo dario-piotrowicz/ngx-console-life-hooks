@@ -24,6 +24,13 @@ export function ConsoleHooks({
       phase,
       logNonImplemented
     );
+    handleLifecycleHook(
+      'ngOnDestroy',
+      componentName,
+      target.prototype,
+      phase,
+      logNonImplemented
+    );
   };
 }
 
