@@ -17,26 +17,19 @@ export function ConsoleHooks({
 }: ConsoleHooksOptions = defaultConsoleHooksOptions) {
   return function (target: any) {
     const componentName = target.name;
-    handleLifecycleHook(
+    const lifeCycleNames: LifecycleHooksNames[] = [
       'ngOnInit',
-      componentName,
-      target,
-      phase,
-      logNonImplemented
-    );
-    handleLifecycleHook(
       'ngOnChanges',
-      componentName,
-      target,
-      phase,
-      logNonImplemented
-    );
-    handleLifecycleHook(
       'ngOnDestroy',
-      componentName,
-      target,
-      phase,
-      logNonImplemented
+    ];
+    lifeCycleNames.forEach((lifecycleName) =>
+      handleLifecycleHook(
+        lifecycleName,
+        componentName,
+        target,
+        phase,
+        logNonImplemented
+      )
     );
   };
 }
