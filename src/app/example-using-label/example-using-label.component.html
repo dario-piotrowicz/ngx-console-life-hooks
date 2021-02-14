@@ -1,0 +1,19 @@
+<div class="example-using-label">
+  <div class="buttons-container">
+    <button class="btn" (click)="showLabel = !showLabel">
+      {{ showLabel ? "Hide" : "Show" }} Label
+    </button>
+    <button
+      class="btn"
+      (click)="labelIsBold = !labelIsBold"
+      [disabled]="!showLabel"
+    >
+      Make the Label's font {{ labelIsBold ? "standard" : "bold" }}
+    </button>
+  </div>
+  <app-label
+    class="label"
+    *ngIf="showLabel"
+    [labelIsBold]="labelIsBold"
+  ></app-label>
+</div>
