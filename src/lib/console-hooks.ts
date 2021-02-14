@@ -52,29 +52,25 @@ const handleLifecycleHook = (
 
     prototype[lifecycleHookName] = function (args: any) {
       if (phase === 'before' || phase === 'beforeAndAfter') {
-        if (args) {
-          console.log(startConsoleLogMessage, { arguments: args });
-        } else {
-          console.log(startConsoleLogMessage);
-        }
+        consoleLogForHook(startConsoleLogMessage, args);
       }
       original.apply(this);
       if (phase === 'after' || phase === 'beforeAndAfter') {
-        if (args) {
-          console.log(afterConsoleLogMessage, { arguments: args });
-        } else {
-          console.log(afterConsoleLogMessage);
-        }
+        consoleLogForHook(afterConsoleLogMessage, { arguments: args });
       }
     };
   } else if (logNonImplemented) {
     const consoleLogMessage = `${componentName} ======> ${lifecycleHookName} (non-implemented)`;
     prototype[lifecycleHookName] = (args: any) => {
-      if (args) {
-        console.log(consoleLogMessage, { arguments: args });
-      } else {
-        console.log(consoleLogMessage);
-      }
+      consoleLogForHook(consoleLogMessage, args);
     };
+  }
+};
+
+const consoleLogForHook = (message: string, args?: any) => {
+  if (args) {
+    console.log(message, { arguments: args });
+  } else {
+    console.log(message);
   }
 };
