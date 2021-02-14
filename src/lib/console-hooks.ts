@@ -20,14 +20,14 @@ export function ConsoleHooks({
     handleLifecycleHook(
       'ngOnInit',
       componentName,
-      target.prototype,
+      target,
       phase,
       logNonImplemented
     );
     handleLifecycleHook(
       'ngOnDestroy',
       componentName,
-      target.prototype,
+      target,
       phase,
       logNonImplemented
     );
@@ -37,20 +37,21 @@ export function ConsoleHooks({
 const handleLifecycleHook = (
   lifecycleHookName: LifecycleHooksNames,
   componentName: string,
-  prototype: any,
+  target: any,
   phase: Phase,
   logNonImplemented: boolean
 ) => {
+  const prototype = target.prototype;
   const original = prototype[lifecycleHookName];
   if (typeof original === 'function') {
-    prototype[lifecycleHookName] = () => {
+    prototype[lifecycleHookName] = function () {
       if (phase === 'before' || phase === 'beforeAndAfter') {
         const extraBeforeInfo = phase === 'beforeAndAfter' ? ' (start)' : '';
         console.log(
           `${componentName} ======> ${lifecycleHookName}${extraBeforeInfo}`
         );
       }
-      original();
+      original.apply(this);
       if (phase === 'after' || phase === 'beforeAndAfter') {
         const extraAfterInfo = phase === 'beforeAndAfter' ? ' (end)' : '';
         console.log(

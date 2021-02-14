@@ -11,9 +11,11 @@ import { ConsoleHooks } from 'src/lib/console-hooks';
   styleUrls: ['./label.component.scss'],
 })
 export class LabelComponent implements OnInit {
+  public label = 'default-label';
+
   constructor() {}
 
   ngOnInit(): void {
-    console.log;
+    this.label = 'label component initialized';
   }
 }
