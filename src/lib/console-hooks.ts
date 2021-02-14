@@ -50,13 +50,14 @@ const handleLifecycleHook = (
 ) => {
   const prototype = target.prototype;
   const original = prototype[lifecycleHookName];
-  if (typeof original === 'function') {
-    prototype[lifecycleHookName] = function (args: any) {
-      const extraBeforeInfo = phase === 'beforeAndAfter' ? ' (start)' : '';
-      const startConsoleLogMessage = `${componentName} ======> ${lifecycleHookName}${extraBeforeInfo}`;
 
-      const extraAfterInfo = phase === 'beforeAndAfter' ? ' (end)' : '';
-      const afterConsoleLogMessage = `${componentName} ======> ${lifecycleHookName}${extraAfterInfo}`;
+  if (typeof original === 'function') {
+    const extraBeforeInfo = phase === 'beforeAndAfter' ? ' (start)' : '';
+    const startConsoleLogMessage = `${componentName} ======> ${lifecycleHookName}${extraBeforeInfo}`;
+    const extraAfterInfo = phase === 'beforeAndAfter' ? ' (end)' : '';
+    const afterConsoleLogMessage = `${componentName} ======> ${lifecycleHookName}${extraAfterInfo}`;
+
+    prototype[lifecycleHookName] = function (args: any) {
       if (phase === 'before' || phase === 'beforeAndAfter') {
         if (args) {
           console.log(startConsoleLogMessage, { arguments: args });
@@ -75,8 +76,8 @@ const handleLifecycleHook = (
     };
   } else {
     if (logNonImplemented) {
+      const consoleLogMessage = `${componentName} ======> ${lifecycleHookName} (non-implemented)`;
       prototype[lifecycleHookName] = (args: any) => {
-        const consoleLogMessage = `${componentName} ======> ${lifecycleHookName} (non-implemented)`;
         if (args) {
           console.log(consoleLogMessage, { arguments: args });
         } else {
