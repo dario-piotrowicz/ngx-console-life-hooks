@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "prebuild-lib": "rm -rf dist-lib",
     "build-lib": "tsc src/lib/index.ts --outDir dist-lib --declaration",
-    "prepublish": "npm run build-lib; node create-package-json-for-dist-lib.js",
+    "prepublish": "npm run build-lib; node ./lib/copy-files-for-dist.js",
     "publish": ""
   },
   "private": true,
