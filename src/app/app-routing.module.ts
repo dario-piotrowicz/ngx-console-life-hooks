@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { Routes, RouterModule } from '@angular/router';
+import { ClearConsoleGuard } from './clear-console.guard';
 import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
@@ -8,6 +9,7 @@ const appRoutes: Routes = [
     path: '',
     component: HomeComponent,
     pathMatch: 'full',
+    canActivate: [ClearConsoleGuard],
   },
   {
     path: 'label-example',
@@ -15,6 +17,7 @@ const appRoutes: Routes = [
       import('./example-using-label/example-using-label.module').then(
         (m) => m.ExampleUsingLabelModule
       ),
+    canLoad: [ClearConsoleGuard],
   },
   {
     path: '**',
