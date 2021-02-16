@@ -1,0 +1,8 @@
+<header class="header">
+  <div class="title-section">
+    <h1 class="title">Ngx Console Life Hooks</h1>
+  </div>
+  <nav class="navigation" *ngFor="let inHome of currentlyInHome | async">
+    <a *ngIf="!inHome" routerLink="" class="link">Home</a>
+  </nav>
+</header>
