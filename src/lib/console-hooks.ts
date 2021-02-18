@@ -1,5 +1,9 @@
 import { defaultConsoleHooksOptions } from './default-console-hooks-options';
-import { ConsoleHooksOptions, Phase } from './console-hooks-options.model';
+import {
+  ConsoleHooksOptions,
+  Phase,
+  SpecificPhase,
+} from './console-hooks-options.model';
 import { LifecycleHookName } from './lifecycle-hooks-name';
 
 export function ConsoleHooks({
@@ -36,32 +40,69 @@ const handleLifecycleHook = (
   const original = prototype[lifecycleHookName];
 
   if (typeof original === 'function') {
-    const extraBeforeInfo = phase === 'beforeAndAfter' ? ' (start)' : '';
-    const startConsoleLogMessage = `${componentName} ======> ${lifecycleHookName}${extraBeforeInfo}`;
-    const extraAfterInfo = phase === 'beforeAndAfter' ? ' (end)' : '';
-    const afterConsoleLogMessage = `${componentName} ======> ${lifecycleHookName}${extraAfterInfo}`;
+    const consoleLogBeforeFn =
+      phase === 'before' || phase === 'beforeAndAfter'
+        ? generateConsoleLogForHook(
+            componentName,
+            phase,
+            'before',
+            lifecycleHookName
+          )
+        : null;
+    const consoleLogAfterFn =
+      phase === 'after' || phase === 'beforeAndAfter'
+        ? generateConsoleLogForHook(
+            componentName,
+            phase,
+            'after',
+            lifecycleHookName
+          )
+        : null;
 
     prototype[lifecycleHookName] = function (args: any) {
-      if (phase === 'before' || phase === 'beforeAndAfter') {
-        consoleLogForHook(startConsoleLogMessage, args);
+      if (consoleLogBeforeFn) {
+        consoleLogBeforeFn(args);
       }
       original.apply(this);
-      if (phase === 'after' || phase === 'beforeAndAfter') {
-        consoleLogForHook(afterConsoleLogMessage);
+      if (consoleLogAfterFn) {
+        consoleLogAfterFn(args);
       }
     };
   } else if (logNonImplemented) {
-    const consoleLogMessage = `${componentName} ======> ${lifecycleHookName} (non-implemented)`;
-    prototype[lifecycleHookName] = (args: any) => {
-      consoleLogForHook(consoleLogMessage, args);
-    };
+    const consoleLogFn = generateConsoleLogForHook(
+      componentName,
+      null,
+      'non-implemented',
+      lifecycleHookName
+    );
+    prototype[lifecycleHookName] = (args: any) => consoleLogFn(args);
   }
 };
 
-const consoleLogForHook = (message: string, args?: any) => {
-  if (args) {
-    console.log(message, { arguments: args });
+const generateConsoleLogForHook = (
+  componentName: string,
+  phase: Phase | void,
+  currentPhase: SpecificPhase,
+  lifecycleHookName: LifecycleHookName
+): ((args: any) => void) => {
+  let consoleLogMessage = '';
+  if (currentPhase === 'before') {
+    const extraBeforeInfo = phase === 'beforeAndAfter' ? ' (start)' : '';
+    consoleLogMessage = `${componentName} ======> ${lifecycleHookName}${extraBeforeInfo}`;
+  } else if (currentPhase === 'after') {
+    const extraAfterInfo = phase === 'beforeAndAfter' ? ' (end)' : '';
+    consoleLogMessage = `${componentName} ======> ${lifecycleHookName}${extraAfterInfo}`;
+  } else if (currentPhase === 'non-implemented') {
+    consoleLogMessage = `${componentName} ======> ${lifecycleHookName} (non-implemented)`;
   } else {
-    console.log(message);
+    throw 'generateConsoleLogForHook: invalid currentPhase provided';
   }
+
+  return (args?: any) => {
+    if (args) {
+      console.log(consoleLogMessage, { arguments: args });
+    } else {
+      console.log(consoleLogMessage);
+    }
+  };
 };

@@ -4,3 +4,5 @@ export interface ConsoleHooksOptions {
 }
 
 export type Phase = 'before' | 'after' | 'beforeAndAfter';
+
+export type SpecificPhase = 'before' | 'after' | 'non-implemented';
