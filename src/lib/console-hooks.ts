@@ -1,11 +1,16 @@
 import { defaultConsoleHooksOptions } from './default-console-hooks-options';
-import { ConsoleHooksOptions, Phase } from './console-hooks-options.model';
+import {
+  ColorScheme,
+  ConsoleHooksOptions,
+  Phase,
+} from './console-hooks-options.model';
 import { LifecycleHookName } from './lifecycle-hooks-name';
 import { generateConsoleLogForHook } from './generate-console-log-for-hooks';
 
 export function ConsoleHooks({
   phase = defaultConsoleHooksOptions.phase,
-  logNonImplemented = false,
+  logNonImplemented = defaultConsoleHooksOptions.logNonImplemented,
+  colorScheme = defaultConsoleHooksOptions.colorScheme,
 }: ConsoleHooksOptions = defaultConsoleHooksOptions) {
   return function (target: any) {
     const componentName = target.name;
@@ -20,7 +25,8 @@ export function ConsoleHooks({
         componentName,
         target,
         phase,
-        logNonImplemented
+        logNonImplemented,
+        colorScheme
       )
     );
   };
@@ -31,7 +37,8 @@ const handleLifecycleHook = (
   componentName: string,
   target: any,
   phase: Phase,
-  logNonImplemented: boolean
+  logNonImplemented: boolean,
+  colorScheme: ColorScheme
 ) => {
   const prototype = target.prototype;
   const original = prototype[lifecycleHookName];
@@ -43,7 +50,8 @@ const handleLifecycleHook = (
             componentName,
             phase,
             'before',
-            lifecycleHookName
+            lifecycleHookName,
+            colorScheme
           )
         : null;
     const consoleLogAfterFn =
@@ -52,7 +60,8 @@ const handleLifecycleHook = (
             componentName,
             phase,
             'after',
-            lifecycleHookName
+            lifecycleHookName,
+            colorScheme
           )
         : null;
 
@@ -70,7 +79,8 @@ const handleLifecycleHook = (
       componentName,
       null,
       'non-implemented',
-      lifecycleHookName
+      lifecycleHookName,
+      colorScheme
     );
     prototype[lifecycleHookName] = (args: any) => consoleLogFn(args);
   }
