@@ -7,18 +7,18 @@ export const generateConsoleLogForHook = (
   currentPhase: SpecificPhase,
   lifecycleHookName: LifecycleHookName
 ): ((args: any) => void) => {
-  let consoleLogMessage = '';
+  let extraInfo = '';
   if (currentPhase === 'before') {
-    const extraBeforeInfo = phase === 'beforeAndAfter' ? ' (start)' : '';
-    consoleLogMessage = `${componentName} ======> ${lifecycleHookName}${extraBeforeInfo}`;
+    extraInfo = phase === 'beforeAndAfter' ? ' (start)' : '';
   } else if (currentPhase === 'after') {
-    const extraAfterInfo = phase === 'beforeAndAfter' ? ' (end)' : '';
-    consoleLogMessage = `${componentName} ======> ${lifecycleHookName}${extraAfterInfo}`;
+    extraInfo = phase === 'beforeAndAfter' ? ' (end)' : '';
   } else if (currentPhase === 'non-implemented') {
-    consoleLogMessage = `${componentName} ======> ${lifecycleHookName} (non-implemented)`;
+    extraInfo = ' (non-implemented)';
   } else {
     throw 'generateConsoleLogForHook: invalid currentPhase provided';
   }
+
+  const consoleLogMessage = `${componentName} ======> ${lifecycleHookName}${extraInfo}`;
 
   return (args?: any) => {
     if (args) {
