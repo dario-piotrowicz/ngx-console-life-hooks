@@ -1,6 +1,6 @@
 import { defaultConsoleHooksOptions } from './default-console-hooks-options';
 import { ConsoleHooksOptions, Phase } from './console-hooks-options.model';
-import { LifecycleHooksNames } from './lifecycle-hooks-names';
+import { LifecycleHookName } from './lifecycle-hooks-name';
 
 export function ConsoleHooks({
   phase = defaultConsoleHooksOptions.phase,
@@ -8,7 +8,7 @@ export function ConsoleHooks({
 }: ConsoleHooksOptions = defaultConsoleHooksOptions) {
   return function (target: any) {
     const componentName = target.name;
-    const lifeCycleNames: LifecycleHooksNames[] = [
+    const lifeCycleNames: LifecycleHookName[] = [
       'ngOnInit',
       'ngOnChanges',
       'ngOnDestroy',
@@ -26,7 +26,7 @@ export function ConsoleHooks({
 }
 
 const handleLifecycleHook = (
-  lifecycleHookName: LifecycleHooksNames,
+  lifecycleHookName: LifecycleHookName,
   componentName: string,
   target: any,
   phase: Phase,

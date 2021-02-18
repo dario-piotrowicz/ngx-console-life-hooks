@@ -1,4 +1,4 @@
-export type LifecycleHooksNames =
+export type LifecycleHookName =
   | 'ngOnChanges'
   | 'ngOnInit'
   | 'ngDoCheck'
