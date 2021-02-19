@@ -42,14 +42,35 @@ export const generateConsoleLogForHook = (
 };
 
 const getColorsForConsoleLogMessage = (colorScheme: ColorScheme) => {
-  let colors: string[] = [];
+  let colors: { color: string; bgColor?: string }[] = [];
   switch (colorScheme) {
-    case 'allRed':
-      colors = ['red', 'red', 'red', 'red'];
+    case 'terminal':
+      colors = [
+        { color: '#33FF33', bgColor: '#000' },
+        { color: '#33FF33', bgColor: '#000' },
+        { color: '#33FF33', bgColor: '#000' },
+        { color: '#1c771c', bgColor: '#000' },
+      ];
+      break;
+    case 'none':
+      colors = [
+        { color: 'inherit' },
+        { color: 'inherit' },
+        { color: 'inherit' },
+        { color: 'inherit' },
+      ];
       break;
     default:
-      colors = ['inherit', 'inherit', 'inherit', 'inherit'];
+      colors = [
+        { color: '#0e78e3' },
+        { color: 'inherit' },
+        { color: '#1fd91c' },
+        { color: '#777' },
+      ];
       break;
   }
-  return colors.map((colorName) => `color: ${colorName}`);
+  return colors.map((colors) => {
+    const bgColor = colors.bgColor ? `background-color: ${colors.bgColor}` : '';
+    return `color: ${colors.color}; ${bgColor}`;
+  });
 };
