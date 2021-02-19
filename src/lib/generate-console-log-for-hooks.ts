@@ -30,6 +30,7 @@ export const generateConsoleLogForHook = (
       console.log(
         consoleLogMessage,
         ...getColorsForConsoleLogMessage(colorScheme),
+        '\n',
         { arguments: args }
       );
     } else {
