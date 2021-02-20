@@ -46,8 +46,12 @@ object passed as the decorator's argument).
 | ------------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------- |
 | `phase`             | which phase of the lifecycle to console log                                                                | `before`, `after`, `beforeAndAfter`                                       | `before`      |
 | `logNonImplemented` | whether to log lifecycle hooks not implemented by the component                                            | `true`, `false`                                                           | `false`       |
+| `include`           | which lifecycle hooks should be logged (useful alongisde `logNonImplemented` to reduce the log output)     | `null` or a list containing strings with the precise lifecycle hook names | `null`        |
 | `exclude`           | which lifecycle hooks should not be logged (useful alongisde `logNonImplemented` to reduce the log output) | `null` or a list containing strings with the precise lifecycle hook names | `null`        |
 | `colorScheme`       | color scheme for the console logs                                                                          | `none`, `terminal`, `default`                                             | `default`     |
+
+\
+_Note: `include` and `exclude` are opposite options and cannot be used together, if you do so the decorator will throw an error_
 
 \
 &NewLine;
