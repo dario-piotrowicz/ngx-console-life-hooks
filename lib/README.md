@@ -44,11 +44,12 @@ phase: 'before',
 logNonImplemented: false,
 colorScheme: 'default',
 
-| Option              | Description                                                    | Possible Values                     | Default Value |
-| ------------------- | -------------------------------------------------------------- | ----------------------------------- | ------------- |
-| `phase`             | which phase of the lifecycle to console log                    | `before`, `after`, `beforeAndAfter` | `before`      |
-| `logNonImplemented` | wheter to log lifecycle hooks not implemented by the component | `true`, `false`                     | `false`       |
-| `colorScheme`       | color scheme for the console logs                              | `none`, `terminal`, `default`       | `default`     |
+| Option              | Description                                                                                                | Possible Values                                                           | Default Value |
+| ------------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------- |
+| `phase`             | which phase of the lifecycle to console log                                                                | `before`, `after`, `beforeAndAfter`                                       | `before`      |
+| `logNonImplemented` | whether to log lifecycle hooks not implemented by the component                                            | `true`, `false`                                                           | `false`       |
+| `exclude`           | which lifecycle hooks should not be logged (useful alongisde `logNonImplemented` to reduce the log output) | `null` or a list containing strings with the precise lifecycle hook names | `null`        |
+| `colorScheme`       | color scheme for the console logs                                                                          | `none`, `terminal`, `default`                                             | `default`     |
 
 \
 &NewLine;
