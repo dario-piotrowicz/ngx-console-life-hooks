@@ -20,6 +20,14 @@ const appRoutes: Routes = [
     canLoad: [ClearConsoleGuard],
   },
   {
+    path: 'input-example',
+    loadChildren: () =>
+      import('./example-using-input/example-using-input.module').then(
+        (m) => m.ExampleUsingInputModule
+      ),
+    canLoad: [ClearConsoleGuard],
+  },
+  {
     path: '**',
     redirectTo: '/',
   },
