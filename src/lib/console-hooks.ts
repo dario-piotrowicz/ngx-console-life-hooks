@@ -12,9 +12,16 @@ export function ConsoleHooks({
   logNonImplemented = defaultConsoleHooksOptions.logNonImplemented,
   colorScheme = defaultConsoleHooksOptions.colorScheme,
   exclude = defaultConsoleHooksOptions.exclude,
+  include = defaultConsoleHooksOptions.include,
 }: ConsoleHooksOptions = defaultConsoleHooksOptions) {
   return function (target: any) {
     const componentName = target.name;
+    if (include && exclude) {
+      throw `@ConsoleHook Error: both include and exclude options have been provided for the ${componentName} component, please use only one`;
+    }
+    if (include === []) {
+      include = null;
+    }
     if (!exclude) {
       exclude = [];
     }
@@ -30,6 +37,7 @@ export function ConsoleHooks({
     ];
     lifeCycleNames
       .filter((lifecycleName) => !exclude.includes(lifecycleName))
+      .filter((lifeCycleName) => !include || include.includes(lifeCycleName))
       .forEach((lifecycleName) =>
         handleLifecycleHook(
           lifecycleName,

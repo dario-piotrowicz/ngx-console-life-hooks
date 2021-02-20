@@ -4,5 +4,6 @@ export const defaultConsoleHooksOptions: ConsoleHooksOptions = {
   phase: 'before',
   logNonImplemented: false,
   colorScheme: 'default',
+  include: null,
   exclude: null,
 };
