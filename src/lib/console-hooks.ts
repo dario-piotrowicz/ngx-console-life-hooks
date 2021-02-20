@@ -15,8 +15,13 @@ export function ConsoleHooks({
   return function (target: any) {
     const componentName = target.name;
     const lifeCycleNames: LifecycleHookName[] = [
-      'ngOnInit',
       'ngOnChanges',
+      'ngOnInit',
+      'ngDoCheck',
+      'ngAfterContentInit',
+      'ngAfterContentChecked',
+      'ngAfterViewInit',
+      'ngAfterViewChecked',
       'ngOnDestroy',
     ];
     lifeCycleNames.forEach((lifecycleName) =>
