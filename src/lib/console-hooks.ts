@@ -11,9 +11,13 @@ export function ConsoleHooks({
   phase = defaultConsoleHooksOptions.phase,
   logNonImplemented = defaultConsoleHooksOptions.logNonImplemented,
   colorScheme = defaultConsoleHooksOptions.colorScheme,
+  exclude = defaultConsoleHooksOptions.exclude,
 }: ConsoleHooksOptions = defaultConsoleHooksOptions) {
   return function (target: any) {
     const componentName = target.name;
+    if (!exclude) {
+      exclude = [];
+    }
     const lifeCycleNames: LifecycleHookName[] = [
       'ngOnChanges',
       'ngOnInit',
@@ -24,16 +28,18 @@ export function ConsoleHooks({
       'ngAfterViewChecked',
       'ngOnDestroy',
     ];
-    lifeCycleNames.forEach((lifecycleName) =>
-      handleLifecycleHook(
-        lifecycleName,
-        componentName,
-        target,
-        phase,
-        logNonImplemented,
-        colorScheme
-      )
-    );
+    lifeCycleNames
+      .filter((lifecycleName) => !exclude.includes(lifecycleName))
+      .forEach((lifecycleName) =>
+        handleLifecycleHook(
+          lifecycleName,
+          componentName,
+          target,
+          phase,
+          logNonImplemented,
+          colorScheme
+        )
+      );
   };
 }
 

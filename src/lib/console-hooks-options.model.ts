@@ -1,7 +1,10 @@
+import { LifecycleHookName } from './lifecycle-hooks-name';
+
 export interface ConsoleHooksOptions {
   phase?: Phase;
   logNonImplemented?: boolean;
   colorScheme?: ColorScheme;
+  exclude?: LifecycleHookName[];
 }
 
 export type Phase = 'before' | 'after' | 'beforeAndAfter';
