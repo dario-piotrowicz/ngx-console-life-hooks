@@ -4,6 +4,12 @@ import { ConsoleHooks } from 'src/lib/console-hooks';
 @ConsoleHooks({
   phase: 'beforeAndAfter',
   logNonImplemented: true,
+  exclude: [
+    'ngAfterContentInit',
+    'ngAfterContentChecked',
+    'ngAfterViewInit',
+    'ngAfterViewChecked',
+  ],
 })
 @Component({
   selector: 'app-label',
