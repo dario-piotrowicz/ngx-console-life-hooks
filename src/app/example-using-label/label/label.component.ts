@@ -24,6 +24,6 @@ export class LabelComponent implements OnInit {
 
   ngOnInit(): void {
     this.label = 'label component initialized';
-    console.log('INIT from LABEL!!!!');
+    console.log('ngOnInit console.log from the LabelComponent');
   }
 }

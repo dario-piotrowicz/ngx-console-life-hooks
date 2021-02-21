@@ -12,6 +12,13 @@
   </small>
 </p>
 <nav class="navigation">
-  <a routerLink="/label-example">Label Example</a>
-  <a routerLink="/input-example">Input Example</a>
+  <a
+    *ngFor="let example of examples"
+    [routerLink]="example.routerLink"
+    class="example-link-card"
+  >
+    <div class="example-name">{{ example.name }}</div>
+    <div class="divider"></div>
+    <div class="example-description">{{ example.description }}</div></a
+  >
 </nav>
