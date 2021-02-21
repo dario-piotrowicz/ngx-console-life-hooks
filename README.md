@@ -14,4 +14,4 @@ To build the library run `npm run build-lib` instead and in this case you will f
 
 ### Publishing
 
-In order to publish the library run `npm run publish`, this will build the library, copy the _package.json_ and _README&#46;md_ files into _/dist-lib_ and perform the npm publishing process.
+In order to publish the library run `npm run publish-lib`, this will build the library, copy the _package.json_ and _README&#46;md_ files to _/dist-lib_ and perform the npm publishing process.
