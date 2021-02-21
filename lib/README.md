@@ -4,7 +4,7 @@
 
 \
 This is a very minimalistic library which contains a single
-class decorator that you can use to automatically log in the console the component's life cycle hooks.
+class decorator that you can use to automatically log in the console a component's lifecycle hooks.
 \
 \
 All you need to do is to install the library (as a dev dependency since you in theory this decorator should only be useful for debugging purposes) and add the decorator to the components you're interested in.
