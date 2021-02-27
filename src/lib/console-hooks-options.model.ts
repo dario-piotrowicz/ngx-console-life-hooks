@@ -12,4 +12,10 @@ export type Phase = 'before' | 'after' | 'beforeAndAfter';
 
 export type SpecificPhase = 'before' | 'after' | 'non-implemented';
 
-export type ColorScheme = 'none' | 'terminal' | 'default';
+export type ColorScheme =
+  | 'none'
+  | 'terminal'
+  | 'angular'
+  | 'react'
+  | 'vue'
+  | 'default';
