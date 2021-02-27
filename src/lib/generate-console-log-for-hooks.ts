@@ -25,20 +25,13 @@ export const generateConsoleLogForHook = (
   }
 
   const consoleLogMessage = `%c${componentName}%c ======> %c${lifecycleHookName}%c${extraInfo}`;
+  const colors = getColorsForConsoleLogMessage(colorScheme);
 
   return (args?: any) => {
     if (args) {
-      console.log(
-        consoleLogMessage,
-        ...getColorsForConsoleLogMessage(colorScheme),
-        '\n',
-        { arguments: args }
-      );
+      console.log(consoleLogMessage, ...colors, '\n', { arguments: args });
     } else {
-      console.log(
-        consoleLogMessage,
-        ...getColorsForConsoleLogMessage(colorScheme)
-      );
+      console.log(consoleLogMessage, ...colors);
     }
   };
 };
