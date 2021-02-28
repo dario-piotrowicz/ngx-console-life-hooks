@@ -9,39 +9,34 @@
 
 .navigation {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .example-link-card {
-  margin: 2rem;
-  padding: 2rem;
-  border-radius: 5px;
-  border: 1px solid #000;
-  box-shadow: 0px 4px 8px 0px transparentize(#000, 0.3);
-  transition: transform 0.2s, box-shadow 0.2s;
-  width: 100%;
-  max-width: 300px;
+  flex: 0 0 40%;
+  border-radius: 4px;
+  box-shadow: 0 2px 2px rgb(10 16 20 / 24%), 0 0 2px rgb(10 16 20 / 12%);
+  padding: 3rem;
+  margin: 1rem;
+  transition: box-shadow 0.5s;
+  text-align: center;
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 15px 25px 0px transparentize(#000, 0.5);
+    box-shadow: 0 8px 8px rgb(10 16 20 / 24%), 0 0 8px rgb(10 16 20 / 12%);
   }
 
   .example-name {
-    color: #000;
+    color: #1976d2;
+    margin: 3rem 5px;
+    margin-top: 1rem;
     text-align: center;
     font-size: 3rem;
   }
 
-  .divider {
-    width: 90%;
-    margin: 1rem auto;
-    height: 1px;
-    background-color: #000;
-  }
-
   .example-description {
-    color: #000;
+    font-size: 2rem;
+    color: #444;
+    margin-bottom: 1rem;
   }
 }
