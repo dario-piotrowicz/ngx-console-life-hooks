@@ -1,5 +1,9 @@
 .intro {
   padding: 5rem 15rem;
+
+  @media only screen and (max-width: 600px) {
+    padding: 5rem;
+  }
 }
 
 .intro-sub {
