@@ -1,14 +1,17 @@
 .example-using-label {
   padding: 5rem;
   margin: 5rem auto;
-  border-radius: 5px;
-  background-color: rgb(195, 223, 233);
-  padding-bottom: 0.5rem;
-  height: 15rem;
-  border: 2px solid black;
+  height: 19rem;
   display: flex;
   flex-direction: column;
   max-width: 800px;
+  border-radius: 1px;
+  background: #fff;
+  border: 1px solid #dbdbdb;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 5px 0 rgb(0 0 0 / 20%);
+  background-color: #ebebeb;
+  width: 100%;
 
   .buttons-container {
     display: flex;
@@ -36,7 +39,7 @@
     max-width: 500px;
   }
   @media only screen and (max-width: 650px) {
-    margin: 5rem;
+    max-width: 90vw;
     height: 23rem;
     padding-top: 2rem;
 
