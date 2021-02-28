@@ -7,6 +7,14 @@
   display: block;
 }
 
+.link {
+  color: #1976d2;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .navigation {
   display: flex;
   justify-content: space-around;
