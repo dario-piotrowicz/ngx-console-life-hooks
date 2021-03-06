@@ -6,7 +6,6 @@ import {
 } from './console-hooks-options.model';
 import { LifecycleHookName } from './lifecycle-hooks-name';
 import { getColorsForConsoleLogMessage } from './get-colors-for-console-log';
-import { Input } from '@angular/core';
 
 export const generateConsoleLogForHook = (
   componentName: string,

@@ -40,7 +40,8 @@ export function ConsoleHooks({
     lifeCycleNames
       .filter((lifecycleName) => !exclude.includes(lifecycleName))
       .filter((lifeCycleName) => !include || include.includes(lifeCycleName))
-      .forEach((lifecycleName) =>
+      .forEach((lifecycleName) => {
+        const isInIncludeList = (include || []).includes(lifecycleName);
         handleLifecycleHook(
           lifecycleName,
           componentName,
@@ -48,9 +49,10 @@ export function ConsoleHooks({
           phase,
           logNonImplemented,
           colorScheme,
-          indent
-        )
-      );
+          indent,
+          isInIncludeList
+        );
+      });
   };
 }
 
@@ -61,7 +63,8 @@ const handleLifecycleHook = (
   phase: Phase,
   logNonImplemented: boolean,
   colorScheme: ColorScheme,
-  indent: Indent
+  indent: Indent,
+  isInIncludeList: boolean
 ) => {
   const prototype = target.prototype;
   const original = prototype[lifecycleHookName];
@@ -109,5 +112,10 @@ const handleLifecycleHook = (
       indent
     );
     prototype[lifecycleHookName] = (args: any) => consoleLogFn(args);
+  } else if (isInIncludeList) {
+    const errorPrefix = '@ConsoleHooks-Error: ';
+    const errorMessage = `trying to include non-implemented ${lifecycleHookName} for ${componentName} without setting logNonImplemented to true`;
+    const helpMessage = `Please either remove ${lifecycleHookName} from the include list or set logNonImplemented to true`;
+    console.error(`${errorPrefix}${errorMessage}.\n\n${helpMessage}`);
   }
 };

@@ -52,7 +52,10 @@ object passed as the decorator's argument).
 | `indent`            | how much indentation to apply to the console log                                                           | `0`, `1`, `2`, `3`, `4` and `5`                                           | `0`           |
 
 \
-_Note: `include` and `exclude` are opposite options and cannot be used together, if you do so the decorator will throw an error_
+_Note:_
+
+- `include` and `exclude` are opposite options and cannot be used together, if you do so the decorator will throw an error
+- if you add a non-implemented hook to the `include` list the decorator will not log it unless the `logNonImplemented` option is set to `true` (an error will be logged instead)
 
 \
 &NewLine;
