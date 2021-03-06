@@ -1,6 +1,6 @@
 {
   "name": "ngx-console-life-hooks",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "./index.js",
   "description": "Class decorator that automatically console logs lifecycle hooks events",
   "keywords": [

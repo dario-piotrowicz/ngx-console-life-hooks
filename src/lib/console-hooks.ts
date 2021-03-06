@@ -2,6 +2,7 @@ import { defaultConsoleHooksOptions } from './default-console-hooks-options';
 import {
   ColorScheme,
   ConsoleHooksOptions,
+  Indent,
   Phase,
 } from './console-hooks-options.model';
 import { LifecycleHookName } from './lifecycle-hooks-name';
@@ -13,6 +14,7 @@ export function ConsoleHooks({
   colorScheme = defaultConsoleHooksOptions.colorScheme,
   exclude = defaultConsoleHooksOptions.exclude,
   include = defaultConsoleHooksOptions.include,
+  indent = defaultConsoleHooksOptions.indent,
 }: ConsoleHooksOptions = defaultConsoleHooksOptions) {
   return function (target: any) {
     const componentName = target.name;
@@ -45,7 +47,8 @@ export function ConsoleHooks({
           target,
           phase,
           logNonImplemented,
-          colorScheme
+          colorScheme,
+          indent
         )
       );
   };
@@ -57,7 +60,8 @@ const handleLifecycleHook = (
   target: any,
   phase: Phase,
   logNonImplemented: boolean,
-  colorScheme: ColorScheme
+  colorScheme: ColorScheme,
+  indent: Indent
 ) => {
   const prototype = target.prototype;
   const original = prototype[lifecycleHookName];
@@ -70,7 +74,8 @@ const handleLifecycleHook = (
             phase,
             'before',
             lifecycleHookName,
-            colorScheme
+            colorScheme,
+            indent
           )
         : null;
     const consoleLogAfterFn =
@@ -80,7 +85,8 @@ const handleLifecycleHook = (
             phase,
             'after',
             lifecycleHookName,
-            colorScheme
+            colorScheme,
+            indent
           )
         : null;
 
@@ -99,7 +105,8 @@ const handleLifecycleHook = (
       null,
       'non-implemented',
       lifecycleHookName,
-      colorScheme
+      colorScheme,
+      indent
     );
     prototype[lifecycleHookName] = (args: any) => consoleLogFn(args);
   }

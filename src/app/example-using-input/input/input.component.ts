@@ -5,6 +5,7 @@ import { ConsoleHooks } from 'src/lib';
   logNonImplemented: true,
   colorScheme: 'terminal',
   include: ['ngOnChanges'],
+  indent: 1,
 })
 @Component({
   selector: 'app-input',

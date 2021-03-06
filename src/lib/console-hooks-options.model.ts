@@ -6,6 +6,7 @@ export interface ConsoleHooksOptions {
   colorScheme?: ColorScheme;
   include?: LifecycleHookName[];
   exclude?: LifecycleHookName[];
+  indent?: Indent;
 }
 
 export type Phase = 'before' | 'after' | 'beforeAndAfter';
@@ -19,3 +20,5 @@ export type ColorScheme =
   | 'react'
   | 'vue'
   | 'default';
+
+export type Indent = 0 | 1 | 2 | 3 | 4 | 5;

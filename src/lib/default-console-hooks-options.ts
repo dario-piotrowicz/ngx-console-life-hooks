@@ -6,4 +6,5 @@ export const defaultConsoleHooksOptions: ConsoleHooksOptions = {
   colorScheme: 'default',
   include: null,
   exclude: null,
+  indent: 0,
 };

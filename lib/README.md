@@ -49,6 +49,7 @@ object passed as the decorator's argument).
 | `include`           | which lifecycle hooks should be logged (useful alongisde `logNonImplemented` to reduce the log output)     | `null` or a list containing strings with the precise lifecycle hook names | `null`        |
 | `exclude`           | which lifecycle hooks should not be logged (useful alongisde `logNonImplemented` to reduce the log output) | `null` or a list containing strings with the precise lifecycle hook names | `null`        |
 | `colorScheme`       | color scheme for the console logs                                                                          | `none`, `terminal`, `angular` , `react` , `vue` , `default`               | `default`     |
+| `indent`            | how much indentation to apply to the console log                                                           | `0`, `1`, `2`, `3`, `4` and `5`                                           | `0`           |
 
 \
 _Note: `include` and `exclude` are opposite options and cannot be used together, if you do so the decorator will throw an error_
