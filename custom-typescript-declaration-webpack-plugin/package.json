@@ -1,0 +1,15 @@
+{
+  "// Explanation": "I could not get any typescript webpack plugin to produce the declatarions file, so I took this one debugged it and made it work for me, I am using this one for the time being then",
+  "// original author": {
+    "name": "chitter99",
+    "email": "aaron.schmid@outlook.com",
+    "url": "http://aaronschmid.ch"
+  },
+  "// original project homepage": "https://github.com/chitter99/typescript-declaration-webpack-plugin#readme",
+  "main": "index.js",
+  "name": "typescript-declaration-webpack-plugin",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chitter99/typescript-declaration-webpack-plugin.git"
+  }
+}

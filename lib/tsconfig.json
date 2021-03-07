@@ -1,0 +1,20 @@
+{
+    "rootDir": "../src/lib",
+    "files": ["../src/lib/console-hooks.ts"],
+    "compileOnSave": false,
+    "compilerOptions": {
+      "sourceMap": true,
+      "declaration": true,
+      "downlevelIteration": true,
+      "experimentalDecorators": true,
+      "moduleResolution": "node",
+      "importHelpers": true,
+      "target": "es2015",
+      "module": "es2020",
+      "lib": [
+        "es2018",
+        "dom"
+      ]
+    }
+  }
+  
