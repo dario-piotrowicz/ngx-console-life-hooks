@@ -1,24 +1,5 @@
-.example-using-frameworks {
-  padding: 5rem;
-  margin: 5rem auto;
-  display: flex;
-  flex-direction: column;
-  max-width: 800px;
-  border-radius: 1px;
-  background: #fff;
-  border: 1px solid #dbdbdb;
-  box-sizing: border-box;
-  box-shadow: 2px 2px 5px 0 rgb(0 0 0 / 20%);
-  background-color: #ebebeb;
-  width: 100%;
+@import "../../assets/scss/example-base.scss";
 
-  @media only screen and (max-width: 930px) {
-    max-width: 600px;
-  }
-  @media only screen and (max-width: 750px) {
-    max-width: 500px;
-  }
-  @media only screen and (max-width: 650px) {
-    max-width: 90vw;
-  }
+.example-using-frameworks {
+  @extend %example-base;
 }

@@ -1,17 +1,9 @@
+@import "../../assets/scss/example-base.scss";
+
 .example-using-input {
-  padding: 5rem;
-  margin: 5rem auto;
-  display: flex;
-  flex-direction: column;
+  @extend %example-base;
+
   align-items: center;
-  max-width: 800px;
-  border-radius: 1px;
-  background: #fff;
-  border: 1px solid #dbdbdb;
-  box-sizing: border-box;
-  box-shadow: 2px 2px 5px 0 rgb(0 0 0 / 20%);
-  background-color: #ebebeb;
-  width: 100%;
 
   .input {
     width: 70%;
@@ -21,23 +13,5 @@
   .btn {
     width: 50%;
     font-size: 2rem;
-  }
-
-  .label {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.3rem;
-  }
-
-  @media only screen and (max-width: 930px) {
-    max-width: 600px;
-  }
-  @media only screen and (max-width: 750px) {
-    max-width: 500px;
-  }
-  @media only screen and (max-width: 650px) {
-    max-width: 90vw;
   }
 }
