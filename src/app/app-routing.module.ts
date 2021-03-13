@@ -28,6 +28,14 @@ const appRoutes: Routes = [
     canLoad: [ClearConsoleGuard],
   },
   {
+    path: 'frameworks-example',
+    loadChildren: () =>
+      import('./example-using-frameworks/example-using-frameworks.module').then(
+        (m) => m.ExampleUsingLabelModule
+      ),
+    canLoad: [ClearConsoleGuard],
+  },
+  {
     path: '**',
     redirectTo: '/',
   },
