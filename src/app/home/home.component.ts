@@ -19,5 +19,11 @@ export class HomeComponent {
       parent with different color schemes used to distinguish the two types of logs`,
       routerLink: '/input-example',
     },
+    {
+      name: 'Frameworks Example',
+      description: `Extremely simple example the use of the decorator on three elements and their parent,
+      in which the use of indentation and different color schemes helps distinguish the logs`,
+      routerLink: '/frameworks-example',
+    },
   ];
 }
