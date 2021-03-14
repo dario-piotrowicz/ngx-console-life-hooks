@@ -38,7 +38,7 @@ export class AppComponent {
 
 ### Options
 
-Additionally there are some extra options you can use to can use to fine tune the directive to your prefereces
+Additionally there are some extra options you can use to fine-tune the decorator's behavior according to your preference
 (those options need to be provided as fields of an
 object passed as the decorator's argument).
 
