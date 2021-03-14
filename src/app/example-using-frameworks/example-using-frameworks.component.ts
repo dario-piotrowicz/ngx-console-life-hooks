@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ConsoleHooks } from 'src/lib/console-hooks';
 
 @ConsoleHooks({
-  logNonImplemented: true,
+  componentName: 'Frameworks Container',
   colorScheme: 'none',
-  include: ['ngOnInit'],
 })
 @Component({
   selector: 'app-example-using-frameworks',

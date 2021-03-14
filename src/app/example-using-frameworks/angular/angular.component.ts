@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ConsoleHooks } from 'src/lib/console-hooks';
 
 @ConsoleHooks({
+  componentName: 'Angular',
   colorScheme: 'angular',
   include: ['ngOnInit'],
   indent: 1,

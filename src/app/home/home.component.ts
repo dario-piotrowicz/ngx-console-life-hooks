@@ -22,7 +22,7 @@ export class HomeComponent {
     {
       name: 'Frameworks Example',
       description: `Extremely simple example the use of the decorator on three elements and their parent,
-      in which the use of indentation and different color schemes helps distinguish the logs`,
+      which overrides the components' names, uses indentation and different color schemes`,
       routerLink: '/frameworks-example',
     },
   ];

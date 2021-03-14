@@ -1,6 +1,7 @@
 import { LifecycleHookName } from './lifecycle-hooks-name';
 
 export interface ConsoleHooksOptions {
+  componentName?: string;
   phase?: Phase;
   logNonImplemented?: boolean;
   colorScheme?: ColorScheme;

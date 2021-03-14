@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ConsoleHooks } from 'src/lib';
 
 @ConsoleHooks({
+  componentName: 'Vue',
   colorScheme: 'vue',
   indent: 1,
 })

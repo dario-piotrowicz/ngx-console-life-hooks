@@ -44,6 +44,7 @@ object passed as the decorator's argument).
 
 | Option              | Description                                                                                                | Possible Values                                                           | Default Value |
 | ------------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------- |
+| `componentName`     | overrides the name of the component printed in the console logs                                            | any string                                                                | null          |
 | `phase`             | which phase of the lifecycle to console log                                                                | `before`, `after`, `beforeAndAfter`                                       | `before`      |
 | `logNonImplemented` | whether to log lifecycle hooks not implemented by the component                                            | `true`, `false`                                                           | `false`       |
 | `include`           | which lifecycle hooks should be logged (useful alongisde `logNonImplemented` to reduce the log output)     | `null` or a list containing strings with the precise lifecycle hook names | `null`        |
@@ -54,6 +55,7 @@ object passed as the decorator's argument).
 \
 _Note:_
 
+- if you set `componentName` to an empty string (or anything `falsy` for that matter) it will be ignored and the normal component name will be used instead
 - `include` and `exclude` are opposite options and cannot be used together, if you do so the decorator will throw an error
 - if you add a non-implemented hook to the `include` list the decorator will not log it unless the `logNonImplemented` option is set to `true` (an error will be logged instead)
 

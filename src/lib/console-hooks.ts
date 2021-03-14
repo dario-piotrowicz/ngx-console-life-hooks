@@ -9,6 +9,7 @@ import { LifecycleHookName } from './lifecycle-hooks-name';
 import { generateConsoleLogForHook } from './generate-console-log-for-hooks';
 
 export function ConsoleHooks({
+  componentName = defaultConsoleHooksOptions.componentName,
   phase = defaultConsoleHooksOptions.phase,
   logNonImplemented = defaultConsoleHooksOptions.logNonImplemented,
   colorScheme = defaultConsoleHooksOptions.colorScheme,
@@ -17,9 +18,9 @@ export function ConsoleHooks({
   indent = defaultConsoleHooksOptions.indent,
 }: ConsoleHooksOptions = defaultConsoleHooksOptions) {
   return function (target: any) {
-    const componentName = target.name;
+    const componentNameToUse = componentName || target.name;
     if (include && exclude) {
-      throw `@ConsoleHook Error: both include and exclude options have been provided for the ${componentName} component, please use only one`;
+      throw `@ConsoleHook Error: both include and exclude options have been provided for the ${componentNameToUse} component, please use only one`;
     }
     if (include === []) {
       include = null;
@@ -44,7 +45,7 @@ export function ConsoleHooks({
         const isInIncludeList = (include || []).includes(lifecycleName);
         handleLifecycleHook(
           lifecycleName,
-          componentName,
+          componentNameToUse,
           target,
           phase,
           logNonImplemented,
