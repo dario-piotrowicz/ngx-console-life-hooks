@@ -45,11 +45,11 @@ object passed as the decorator's argument).
 | Option              | Description                                                                                                | Possible Values                                                           | Default Value |
 | ------------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------- |
 | `componentName`     | overrides the name of the component printed in the console logs                                            | any string                                                                | null          |
-| `phase`             | which phase of the lifecycle to console log                                                                | `before`, `after`, `beforeAndAfter`                                       | `before`      |
+| `phase`             | which phase of the lifecycle to console log                                                                | `'before'`, `'after'`, `'beforeAndAfter'`                                 | `'before'`    |
 | `logNonImplemented` | whether to log lifecycle hooks not implemented by the component                                            | `true`, `false`                                                           | `false`       |
 | `include`           | which lifecycle hooks should be logged (useful alongisde `logNonImplemented` to reduce the log output)     | `null` or a list containing strings with the precise lifecycle hook names | `null`        |
 | `exclude`           | which lifecycle hooks should not be logged (useful alongisde `logNonImplemented` to reduce the log output) | `null` or a list containing strings with the precise lifecycle hook names | `null`        |
-| `colorScheme`       | color scheme for the console logs                                                                          | `none`, `terminal`, `angular` , `react` , `vue` , `default`               | `default`     |
+| `colorScheme`       | color scheme for the console logs                                                                          | `'none'`, `'terminal'`, `'angular'` , `'react'` , `'vue'` , `'default'`   | `'default'`   |
 | `indent`            | how much indentation to apply to the console log                                                           | `0`, `1`, `2`, `3`, `4` and `5`                                           | `0`           |
 
 \
