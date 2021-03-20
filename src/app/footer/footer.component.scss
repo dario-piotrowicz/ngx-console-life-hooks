@@ -1,0 +1,20 @@
+.footer-wrapper {
+  padding-top: 1px;
+
+  .footer {
+    box-sizing: border-box;
+    padding: 2rem;
+    background-color: #1976d2;
+    color: #fff;
+    box-shadow: 0 -2px 5px 0 rgb(0 0 0 / 30%);
+    font-size: 1.3rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+
+    .author-date {
+      margin-left: auto;
+    }
+  }
+}
