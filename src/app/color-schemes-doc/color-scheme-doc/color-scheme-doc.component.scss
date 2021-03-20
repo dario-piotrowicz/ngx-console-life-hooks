@@ -7,6 +7,7 @@
 
   &__name {
     margin-top: 0;
+    margin-bottom: 2rem;
     display: inline-block;
     padding: 1rem;
     border-radius: 5px;
@@ -14,6 +15,12 @@
     color: #333;
     background-color: #f7f7f7;
     align-self: flex-start;
+  }
+
+  &__example-wrapper {
+    padding: 1.2rem;
+    border: 1px solid #aaa;
+    border-radius: 5px;
   }
 
   &__example-text {
