@@ -36,6 +36,14 @@ const appRoutes: Routes = [
     canLoad: [ClearConsoleGuard],
   },
   {
+    path: 'color-schemes',
+    loadChildren: () =>
+      import('./color-schemes-doc/color-schemes-doc.module').then(
+        (m) => m.ColorSchemesDocModule
+      ),
+    canLoad: [ClearConsoleGuard],
+  },
+  {
     path: '**',
     redirectTo: '/',
   },
