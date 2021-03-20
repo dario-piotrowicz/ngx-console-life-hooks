@@ -13,6 +13,15 @@
     width: 100%;
     display: flex;
 
+    .link {
+      color: inherit;
+
+      &:hover {
+        opacity: 0.8;
+        text-decoration: underline;
+      }
+    }
+
     .author-date {
       margin-left: auto;
     }
