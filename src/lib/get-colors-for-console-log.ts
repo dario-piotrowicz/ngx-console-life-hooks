@@ -5,14 +5,26 @@ interface ColorsForSection {
   bgColor?: string;
 }
 
-interface ColorsForScheme {
+export interface ColorsForScheme {
   component: ColorsForSection;
   arrow: ColorsForSection;
   hook: ColorsForSection;
   extraInfo: ColorsForSection;
 }
 
-const colorSchemes: { [key: string]: ColorsForScheme } = {
+export const rawColorSchemes: { [key: string]: ColorsForScheme } = {
+  none: {
+    component: {},
+    arrow: {},
+    hook: {},
+    extraInfo: {},
+  },
+  default: {
+    component: { color: '#0e78e3' },
+    arrow: { color: 'inherit' },
+    hook: { color: '#1fd91c' },
+    extraInfo: { color: '#777' },
+  },
   terminal: {
     component: { color: '#33FF33', bgColor: '#000' },
     arrow: { color: '#33FF33', bgColor: '#000' },
@@ -37,22 +49,11 @@ const colorSchemes: { [key: string]: ColorsForScheme } = {
     hook: { color: '#FFF', bgColor: '#338F70' },
     extraInfo: { color: '#35495E' },
   },
-  none: {
-    component: {},
-    arrow: {},
-    hook: {},
-    extraInfo: {},
-  },
-  default: {
-    component: { color: '#0e78e3' },
-    arrow: { color: 'inherit' },
-    hook: { color: '#1fd91c' },
-    extraInfo: { color: '#777' },
-  },
 };
 
 export const getColorsForConsoleLogMessage = (colorScheme: ColorScheme) => {
-  const schemeColors = colorSchemes[colorScheme] || colorSchemes['default'];
+  const schemeColors =
+    rawColorSchemes[colorScheme] || rawColorSchemes['default'];
 
   return [
     schemeColors.component,
