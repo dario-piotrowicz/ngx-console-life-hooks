@@ -36,7 +36,7 @@ export class AppComponent {
 \
 &NewLine;
 
-### Options
+## Options
 
 Additionally there are some extra options you can use to fine-tune the decorator's behavior according to your preference
 (those options need to be provided as fields of an
@@ -62,7 +62,7 @@ _Note:_
 \
 &NewLine;
 
-### Links
+## Links
 
 You can find a very simple demo application [here](https://ngx-console-life-hooks.netlify.app)
 
