@@ -1,0 +1,34 @@
+<h2>{{ colorSchemeData.name }}</h2>
+<div>
+  <span
+    [ngStyle]="{
+      color: colorSchemeData.colors.component?.color,
+      backgroundColor: colorSchemeData.colors.component?.bgColor
+    }"
+    >ComponentName</span
+  >
+  <span
+    [ngStyle]="{
+      color: colorSchemeData.colors.arrow?.color,
+      backgroundColor: colorSchemeData.colors.arrow?.bgColor
+    }"
+  >
+    ======></span
+  >
+  <span
+    [ngStyle]="{
+      color: colorSchemeData.colors.hook?.color,
+      backgroundColor: colorSchemeData.colors.hook?.bgColor
+    }"
+  >
+    HookName</span
+  >
+  <span
+    [ngStyle]="{
+      color: colorSchemeData.colors.extraInfo?.color,
+      backgroundColor: colorSchemeData.colors.extraInfo?.bgColor
+    }"
+  >
+    (extra info)</span
+  >
+</div>
