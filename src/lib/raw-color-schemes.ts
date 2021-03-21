@@ -3,7 +3,7 @@ interface ColorsForSection {
   bgColor?: string;
 }
 
-interface ColorsForScheme {
+export interface ColorsForScheme {
   component: ColorsForSection;
   arrow: ColorsForSection;
   hook: ColorsForSection;
