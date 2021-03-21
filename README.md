@@ -1,6 +1,6 @@
 # Ngx Console Life Hooks Demo App
 
-This is the readme file for the demo angular application and the library building process, you can find the library's readme [here](./lib/README.md).
+This is the readme file for the demo angular application and the library building process, you can find the library's readme [here](./lib/README.md), or you can read it directly from the npm website: https://www.npmjs.com/package/ngx-console-life-hooks
 
 ## Demo app
 
