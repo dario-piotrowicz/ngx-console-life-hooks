@@ -16,10 +16,14 @@ export type SpecificPhase = 'before' | 'after' | 'non-implemented';
 
 export type ColorScheme =
   | 'none'
+  | 'default'
   | 'terminal'
   | 'angular'
   | 'react'
   | 'vue'
-  | 'default';
+  | 'neon'
+  | 'c64'
+  | 'aqua'
+  | 'rgb';
 
 export type Indent = 0 | 1 | 2 | 3 | 4 | 5;

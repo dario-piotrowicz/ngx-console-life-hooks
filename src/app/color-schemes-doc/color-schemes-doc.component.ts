@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
+import { rawColorSchemes } from 'src/lib/raw-color-schemes';
 
-import {
-  ColorsForScheme,
-  rawColorSchemes,
-} from 'src/lib/get-colors-for-console-log';
 import { ColorSchemeData } from './color-scheme-data.model';
 
 @Component({
