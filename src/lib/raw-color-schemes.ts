@@ -43,7 +43,7 @@ export const rawColorSchemes: { [key: string]: ColorsForScheme } = {
   },
   vue: {
     component: { color: '#FFF', bgColor: '#338F70' },
-    arrow: { color: '#338F70' },
+    arrow: { color: '#338F70', bgColor: '#35495E' },
     hook: { color: '#FFF', bgColor: '#338F70' },
     extraInfo: { color: '#35495E' },
   },
