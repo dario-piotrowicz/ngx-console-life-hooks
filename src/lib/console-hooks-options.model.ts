@@ -21,9 +21,13 @@ export type ColorScheme =
   | 'angular'
   | 'react'
   | 'vue'
-  | 'neon'
+  | 'js'
+  | 'ts'
   | 'c64'
+  | 'neon'
   | 'aqua'
-  | 'rgb';
+  | 'rgb'
+  | 'coffee'
+  | 'lemon';
 
 export type Indent = 0 | 1 | 2 | 3 | 4 | 5;
