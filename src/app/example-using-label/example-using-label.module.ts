@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { LabelComponent } from './label/label.component';
 import { ExampleUsingLabelComponent } from './example-using-label.component';
 import { RouterModule } from '@angular/router';
+import { ClearConsoleGuard } from '../clear-console.guard';
 
 @NgModule({
   declarations: [LabelComponent, ExampleUsingLabelComponent],
@@ -13,6 +14,7 @@ import { RouterModule } from '@angular/router';
       {
         path: '',
         component: ExampleUsingLabelComponent,
+        canActivate: [ClearConsoleGuard],
       },
     ]),
   ],

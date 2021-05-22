@@ -1,16 +1,12 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, CanLoad } from '@angular/router';
+import { CanActivate } from '@angular/router';
 import { timer } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ClearConsoleGuard implements CanActivate, CanLoad {
+export class ClearConsoleGuard implements CanActivate {
   canActivate() {
-    return this.clearConsole();
-  }
-
-  canLoad() {
     return this.clearConsole();
   }
 

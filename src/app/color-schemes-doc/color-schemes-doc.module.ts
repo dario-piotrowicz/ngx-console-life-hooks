@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ColorSchemesDocComponent } from './color-schemes-doc.component';
 import { ColorSchemeDocComponent } from './color-scheme-doc/color-scheme-doc.component';
+import { ClearConsoleGuard } from '../clear-console.guard';
 
 @NgModule({
   declarations: [ColorSchemesDocComponent, ColorSchemeDocComponent],
@@ -12,6 +13,7 @@ import { ColorSchemeDocComponent } from './color-scheme-doc/color-scheme-doc.com
       {
         path: '',
         component: ColorSchemesDocComponent,
+        canActivate: [ClearConsoleGuard],
       },
     ]),
   ],
