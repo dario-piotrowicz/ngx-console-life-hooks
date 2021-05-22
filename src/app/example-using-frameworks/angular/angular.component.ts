@@ -4,8 +4,9 @@ import { ConsoleHooks } from 'src/lib/console-hooks';
 @ConsoleHooks({
   componentName: 'Angular',
   colorScheme: 'angular',
-  include: ['ngOnInit'],
+  include: ['ngOnInit', 'ngDoCheck'],
   indent: 1,
+  logNonImplemented: true,
 })
 @Component({
   selector: 'app-angular',
@@ -13,7 +14,7 @@ import { ConsoleHooks } from 'src/lib/console-hooks';
   styleUrls: ['./angular.component.scss'],
 })
 export class AngularComponent implements OnInit {
-  constructor() {}
-
   ngOnInit(): void {}
+
+  onClick(): void {}
 }

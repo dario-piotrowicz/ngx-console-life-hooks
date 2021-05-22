@@ -4,8 +4,9 @@ import { ConsoleHooks } from 'src/lib/console-hooks';
 @ConsoleHooks({
   componentName: 'React',
   colorScheme: 'react',
-  include: ['ngOnInit'],
+  include: ['ngOnInit', 'ngDoCheck'],
   indent: 1,
+  logNonImplemented: true,
 })
 @Component({
   selector: 'app-react',
@@ -13,7 +14,7 @@ import { ConsoleHooks } from 'src/lib/console-hooks';
   styleUrls: ['./react.component.scss'],
 })
 export class ReactComponent implements OnInit {
-  constructor() {}
-
   ngOnInit(): void {}
+
+  onClick(): void {}
 }

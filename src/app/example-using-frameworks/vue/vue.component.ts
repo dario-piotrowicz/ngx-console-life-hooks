@@ -5,6 +5,8 @@ import { ConsoleHooks } from 'src/lib';
   componentName: 'Vue',
   colorScheme: 'vue',
   indent: 1,
+  include: ['ngOnInit', 'ngDoCheck'],
+  logNonImplemented: true,
 })
 @Component({
   selector: 'app-vue',
@@ -12,7 +14,7 @@ import { ConsoleHooks } from 'src/lib';
   styleUrls: ['./vue.component.scss'],
 })
 export class VueComponent implements OnInit {
-  constructor() {}
-
   ngOnInit(): void {}
+
+  onClick(): void {}
 }

@@ -1,5 +1,23 @@
-.angular-logo-svg {
-  $size: 10rem;
-  width: $size;
-  height: $size;
+.angular-btn {
+  cursor: pointer;
+  transition: transform 0.2s;
+  border: none;
+  outline: none;
+  background-color: transparent;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.3);
+  }
+
+  &:active {
+    transition: transform 0s;
+    transform: scale(1.2);
+  }
+
+  &__logo-svg {
+    $size: 10rem;
+    width: $size;
+    height: $size;
+  }
 }
