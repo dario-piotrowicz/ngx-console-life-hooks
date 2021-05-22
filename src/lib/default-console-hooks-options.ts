@@ -4,6 +4,7 @@ export const defaultConsoleHooksOptions: ConsoleHooksOptions = {
   componentName: null,
   phase: 'before',
   logNonImplemented: false,
+  logTime: false,
   colorScheme: 'default',
   include: null,
   exclude: null,

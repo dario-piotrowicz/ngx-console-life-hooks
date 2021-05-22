@@ -12,6 +12,7 @@ export function ConsoleHooks({
   componentName = defaultConsoleHooksOptions.componentName,
   phase = defaultConsoleHooksOptions.phase,
   logNonImplemented = defaultConsoleHooksOptions.logNonImplemented,
+  logTime = defaultConsoleHooksOptions.logTime,
   colorScheme = defaultConsoleHooksOptions.colorScheme,
   exclude = defaultConsoleHooksOptions.exclude,
   include = defaultConsoleHooksOptions.include,
@@ -49,6 +50,7 @@ export function ConsoleHooks({
           target,
           phase,
           logNonImplemented,
+          logTime,
           colorScheme,
           indent,
           isInIncludeList
@@ -63,6 +65,7 @@ const handleLifecycleHook = (
   target: any,
   phase: Phase,
   logNonImplemented: boolean,
+  logTime: boolean,
   colorScheme: ColorScheme,
   indent: Indent,
   isInIncludeList: boolean
@@ -79,7 +82,8 @@ const handleLifecycleHook = (
             'before',
             lifecycleHookName,
             colorScheme,
-            indent
+            indent,
+            logTime
           )
         : null;
     const consoleLogAfterFn =
@@ -90,7 +94,8 @@ const handleLifecycleHook = (
             'after',
             lifecycleHookName,
             colorScheme,
-            indent
+            indent,
+            logTime
           )
         : null;
 
@@ -110,7 +115,8 @@ const handleLifecycleHook = (
       'non-implemented',
       lifecycleHookName,
       colorScheme,
-      indent
+      indent,
+      logTime
     );
     prototype[lifecycleHookName] = (args: any) => consoleLogFn(args);
   } else if (isInIncludeList) {

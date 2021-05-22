@@ -4,6 +4,7 @@ import { ConsoleHooks } from 'src/lib/console-hooks';
 @ConsoleHooks({
   componentName: 'Frameworks Container',
   colorScheme: 'none',
+  logTime: true,
 })
 @Component({
   selector: 'app-example-using-frameworks',

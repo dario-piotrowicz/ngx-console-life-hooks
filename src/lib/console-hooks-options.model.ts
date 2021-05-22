@@ -4,6 +4,7 @@ export interface ConsoleHooksOptions {
   componentName?: string;
   phase?: Phase;
   logNonImplemented?: boolean;
+  logTime?: boolean;
   colorScheme?: ColorScheme;
   include?: LifecycleHookName[];
   exclude?: LifecycleHookName[];

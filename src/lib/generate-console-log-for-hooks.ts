@@ -13,7 +13,8 @@ export const generateConsoleLogForHook = (
   currentPhase: SpecificPhase,
   lifecycleHookName: LifecycleHookName,
   colorScheme: ColorScheme,
-  indent: Indent
+  indent: Indent,
+  logTime: boolean
 ): ((args: any) => void) => {
   let extraInfo = '';
   if (currentPhase === 'before') {
@@ -35,10 +36,15 @@ export const generateConsoleLogForHook = (
   const colors = getColorsForConsoleLogMessage(colorScheme);
 
   return (args?: any) => {
-    if (args) {
-      console.log(consoleLogMessage, ...colors, `\n${indentation}`, {
-        arguments: args,
-      });
+    if (args || logTime) {
+      const extra: any = {};
+      if (args) {
+        extra.arguments = args;
+      }
+      if (logTime) {
+        extra.time = new Date().toISOString();
+      }
+      console.log(consoleLogMessage, ...colors, `\n${indentation}`, extra);
     } else {
       console.log(consoleLogMessage, ...colors);
     }
