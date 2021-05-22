@@ -51,6 +51,7 @@ object passed as the decorator's argument).
 | `exclude`           | which lifecycle hooks should not be logged (useful alongisde `logNonImplemented` to reduce the log output) | `null` or a list containing strings with the precise lifecycle hook names                                        | `null`        |
 | `colorScheme`       | color scheme for the console logs                                                                          | string containing one of the [available color schemes](https://ngx-console-life-hooks.netlify.app/color-schemes) | `'default'`   |
 | `indent`            | how much indentation to apply to the console log                                                           | `0`, `1`, `2`, `3`, `4` and `5`                                                                                  | `0`           |
+| `logTime`           | include the current time (in ISO format) in the logs                                                       | `true`, `false`                                                                                                  | `false`       |
 
 \
 _Note:_
