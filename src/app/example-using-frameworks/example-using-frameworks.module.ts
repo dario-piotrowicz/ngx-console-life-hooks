@@ -6,7 +6,6 @@ import { ExampleUsingFrameworksComponent } from './example-using-frameworks.comp
 import { AngularComponent } from './angular/angular.component';
 import { ReactComponent } from './react/react.component';
 import { VueComponent } from './vue/vue.component';
-import { ClearConsoleGuard } from '../clear-console.guard';
 
 @NgModule({
   declarations: [
@@ -21,7 +20,6 @@ import { ClearConsoleGuard } from '../clear-console.guard';
       {
         path: '',
         component: ExampleUsingFrameworksComponent,
-        canActivate: [ClearConsoleGuard],
       },
     ]),
   ],
