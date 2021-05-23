@@ -6,6 +6,7 @@ import {
 } from './console-hooks-options.model';
 import { LifecycleHookName } from './lifecycle-hooks-name';
 import { getColorsForConsoleLogMessage } from './get-colors-for-console-log';
+import { Colors } from './colors';
 
 export const generateConsoleLogForHook = (
   componentName: string,
@@ -13,6 +14,7 @@ export const generateConsoleLogForHook = (
   currentPhase: SpecificPhase,
   lifecycleHookName: LifecycleHookName,
   colorScheme: ColorScheme,
+  customColors: Colors | null,
   indent: Indent,
   logTime: boolean
 ): ((args: any) => void) => {
@@ -33,7 +35,7 @@ export const generateConsoleLogForHook = (
   }
 
   const consoleLogMessage = `${indentation}%c${componentName}%c ======> %c${lifecycleHookName}%c${extraInfo}`;
-  const colors = getColorsForConsoleLogMessage(colorScheme);
+  const colors = getColorsForConsoleLogMessage(colorScheme, customColors);
 
   return (args?: any) => {
     if (args || logTime) {

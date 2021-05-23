@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { rawColorSchemes } from 'src/lib/raw-color-schemes';
+import { rawColorSchemes } from 'src/lib/colors';
 
 import { ColorSchemeData } from './color-scheme-data.model';
 

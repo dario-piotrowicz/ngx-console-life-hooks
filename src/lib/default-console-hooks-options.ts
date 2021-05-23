@@ -6,6 +6,7 @@ export const defaultConsoleHooksOptions: ConsoleHooksOptions = {
   logNonImplemented: false,
   logTime: false,
   colorScheme: 'default',
+  customColors: null,
   include: null,
   exclude: null,
   indent: 0,

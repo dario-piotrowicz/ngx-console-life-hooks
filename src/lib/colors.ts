@@ -3,14 +3,14 @@ interface ColorsForSection {
   bgColor?: string;
 }
 
-export interface ColorsForScheme {
+export interface Colors {
   component: ColorsForSection;
   arrow: ColorsForSection;
   hook: ColorsForSection;
   extraInfo: ColorsForSection;
 }
 
-export const rawColorSchemes: { [key: string]: ColorsForScheme } = {
+export const rawColorSchemes: { [key: string]: Colors } = {
   none: {
     component: {},
     arrow: {},

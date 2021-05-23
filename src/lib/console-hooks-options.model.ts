@@ -1,4 +1,5 @@
 import { LifecycleHookName } from './lifecycle-hooks-name';
+import { Colors } from './colors';
 
 export interface ConsoleHooksOptions {
   componentName?: string;
@@ -6,6 +7,7 @@ export interface ConsoleHooksOptions {
   logNonImplemented?: boolean;
   logTime?: boolean;
   colorScheme?: ColorScheme;
+  customColors?: Colors;
   include?: LifecycleHookName[];
   exclude?: LifecycleHookName[];
   indent?: Indent;

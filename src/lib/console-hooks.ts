@@ -7,6 +7,7 @@ import {
 } from './console-hooks-options.model';
 import { LifecycleHookName } from './lifecycle-hooks-name';
 import { generateConsoleLogForHook } from './generate-console-log-for-hooks';
+import { Colors } from './colors';
 
 export function ConsoleHooks({
   componentName = defaultConsoleHooksOptions.componentName,
@@ -14,6 +15,7 @@ export function ConsoleHooks({
   logNonImplemented = defaultConsoleHooksOptions.logNonImplemented,
   logTime = defaultConsoleHooksOptions.logTime,
   colorScheme = defaultConsoleHooksOptions.colorScheme,
+  customColors = defaultConsoleHooksOptions.customColors,
   exclude = defaultConsoleHooksOptions.exclude,
   include = defaultConsoleHooksOptions.include,
   indent = defaultConsoleHooksOptions.indent,
@@ -52,6 +54,7 @@ export function ConsoleHooks({
           logNonImplemented,
           logTime,
           colorScheme,
+          customColors,
           indent,
           isInIncludeList
         );
@@ -67,6 +70,7 @@ const handleLifecycleHook = (
   logNonImplemented: boolean,
   logTime: boolean,
   colorScheme: ColorScheme,
+  customColors: Colors | null,
   indent: Indent,
   isInIncludeList: boolean
 ) => {
@@ -82,6 +86,7 @@ const handleLifecycleHook = (
             'before',
             lifecycleHookName,
             colorScheme,
+            customColors,
             indent,
             logTime
           )
@@ -94,6 +99,7 @@ const handleLifecycleHook = (
             'after',
             lifecycleHookName,
             colorScheme,
+            customColors,
             indent,
             logTime
           )
@@ -115,6 +121,7 @@ const handleLifecycleHook = (
       'non-implemented',
       lifecycleHookName,
       colorScheme,
+      customColors,
       indent,
       logTime
     );

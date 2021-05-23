@@ -1,3 +1,3 @@
-import { ColorsForScheme } from 'src/lib/raw-color-schemes';
+import { Colors } from 'src/lib/colors';
 
-export type ColorSchemeData = { name: string; colors: ColorsForScheme };
+export type ColorSchemeData = { name: string; colors: Colors };
