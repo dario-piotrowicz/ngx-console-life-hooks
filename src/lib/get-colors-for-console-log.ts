@@ -8,7 +8,7 @@ export const getColorsForConsoleLogMessage = (
   const colors =
     customColors || rawColorSchemes[colorScheme] || rawColorSchemes['default'];
 
-  return [colors.component, colors.arrow, colors.hook, colors.extraInfo].map(
+  return [colors.component, colors.arrow, colors.hook, colors.extra].map(
     (colors) => {
       const fgColor = colors && colors.color ? `color: ${colors.color}; ` : '';
       const bgColor =

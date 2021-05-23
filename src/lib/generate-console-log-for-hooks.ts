@@ -18,13 +18,13 @@ export const generateConsoleLogForHook = (
   indent: Indent,
   logTime: boolean
 ): ((args: any) => void) => {
-  let extraInfo = '';
+  let extra = '';
   if (currentPhase === 'before') {
-    extraInfo = phase === 'beforeAndAfter' ? ' (start)' : '';
+    extra = phase === 'beforeAndAfter' ? ' (start)' : '';
   } else if (currentPhase === 'after') {
-    extraInfo = phase === 'beforeAndAfter' ? ' (end)' : '';
+    extra = phase === 'beforeAndAfter' ? ' (end)' : '';
   } else if (currentPhase === 'non-implemented') {
-    extraInfo = ' (non-implemented)';
+    extra = ' (non-implemented)';
   } else {
     throw 'generateConsoleLogForHook: invalid currentPhase provided';
   }
@@ -34,7 +34,7 @@ export const generateConsoleLogForHook = (
     indentation += '\t';
   }
 
-  const consoleLogMessage = `${indentation}%c${componentName}%c ======> %c${lifecycleHookName}%c${extraInfo}`;
+  const consoleLogMessage = `${indentation}%c${componentName}%c ======> %c${lifecycleHookName}%c${extra}`;
   const colors = getColorsForConsoleLogMessage(colorScheme, customColors);
 
   return (args?: any) => {
