@@ -10,10 +10,9 @@ export const getColorsForConsoleLogMessage = (
 
   return [colors.component, colors.arrow, colors.hook, colors.extraInfo].map(
     (colors) => {
-      const fgColor = colors.color ? `color: ${colors.color}; ` : '';
-      const bgColor = colors.bgColor
-        ? `background-color: ${colors.bgColor}`
-        : '';
+      const fgColor = colors && colors.color ? `color: ${colors.color}; ` : '';
+      const bgColor =
+        colors && colors.bgColor ? `background-color: ${colors.bgColor}` : '';
       return `${fgColor}${bgColor}`;
     }
   );

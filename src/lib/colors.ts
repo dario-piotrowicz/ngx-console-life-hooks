@@ -4,19 +4,14 @@ interface ColorsForSection {
 }
 
 export interface Colors {
-  component: ColorsForSection;
-  arrow: ColorsForSection;
-  hook: ColorsForSection;
-  extraInfo: ColorsForSection;
+  component?: ColorsForSection;
+  arrow?: ColorsForSection;
+  hook?: ColorsForSection;
+  extraInfo?: ColorsForSection;
 }
 
 export const rawColorSchemes: { [key: string]: Colors } = {
-  none: {
-    component: {},
-    arrow: {},
-    hook: {},
-    extraInfo: {},
-  },
+  none: {},
   default: {
     component: { color: '#0e78e3' },
     arrow: { color: 'inherit' },
