@@ -46,6 +46,14 @@ const appRoutes: Routes = [
     data: { preloadFrom: '*' },
   },
   {
+    path: 'custom-colors',
+    loadChildren: () =>
+      import('./custom-colors-doc/custom-colors-doc.module').then(
+        (m) => m.CustomColorsDocModule
+      ),
+    data: { preloadFrom: '*' },
+  },
+  {
     path: '**',
     redirectTo: '/',
   },
