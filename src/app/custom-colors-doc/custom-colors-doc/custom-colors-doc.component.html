@@ -1,1 +1,33 @@
-<p>custom-colors-doc works!</p>
+<div class="custom-colors-doc">
+  <h2 class="doc-title">Custom Colors</h2>
+  <p>
+    You can specify custom colors for the logs associated with a component, to
+    do so you need to sprovide the <i>customColors</i> option and its value
+    needs to be an object comprised of the following four optional fields:
+  </p>
+  <ul>
+    <li><i>component</i><small>(colors for the component's name)</small></li>
+    <li><i>arrow</i><small>(colors for the arrow)</small></li>
+    <li><i>hook</i><small>(colors for the lifecycle hook's name)</small></li>
+    <li>
+      <i>extraInfo</i
+      ><small>(colors for the eventual extra informations)</small>
+    </li>
+  </ul>
+  <p>
+    If a field is not specified the default devtools colors will be used for it
+    section.
+  </p>
+  <p>
+    Each of these fields needs to reprent an object with two optional fields:
+  </p>
+  <ul>
+    <li><i>color</i><small>(color for the text)</small></li>
+    <li><i>bgColor</i><small>(color for the background)</small></li>
+  </ul>
+  <p>
+    The <i>color</i> and <i>bgColor</i> values need to be strings representing a
+    valid css color ( like: <i>rbg</i>, <i>rgba</i>, <i>hex</i> or
+    <i>named colors</i> ), if omitted the default devtools colors will we used.
+  </p>
+</div>
