@@ -38,18 +38,10 @@ const appRoutes: Routes = [
     data: { preloadFrom: '/' },
   },
   {
-    path: 'color-schemes',
+    path: 'colors-docs',
     loadChildren: () =>
-      import('./color-schemes-doc/color-schemes-doc.module').then(
-        (m) => m.ColorSchemesDocModule
-      ),
-    data: { preloadFrom: '*' },
-  },
-  {
-    path: 'custom-colors',
-    loadChildren: () =>
-      import('./custom-colors-doc/custom-colors-doc.module').then(
-        (m) => m.CustomColorsDocModule
+      import('./colors-docs/colors-docs.module').then(
+        (m) => m.ColorsDocsModule
       ),
     data: { preloadFrom: '*' },
   },

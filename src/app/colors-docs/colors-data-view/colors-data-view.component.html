@@ -1,0 +1,41 @@
+<section class="color-scheme">
+  <h4 *ngIf="colorsData.name" class="color-scheme__name">
+    {{ colorsData.name }}
+  </h4>
+  <div class="color-scheme__example-wrapper">
+    <span
+      class="color-scheme__example-text"
+      [ngStyle]="{
+        color: colorsData.colors?.component?.color,
+        backgroundColor: colorsData.colors?.component?.bgColor
+      }"
+      >ComponentName</span
+    >
+    <span
+      class="color-scheme__example-text"
+      [ngStyle]="{
+        color: colorsData.colors?.arrow?.color,
+        backgroundColor: colorsData.colors?.arrow?.bgColor
+      }"
+    >
+      ======>
+    </span>
+    <span
+      class="color-scheme__example-text"
+      [ngStyle]="{
+        color: colorsData.colors?.hook?.color,
+        backgroundColor: colorsData.colors?.hook?.bgColor
+      }"
+      >HookName</span
+    >
+    <span
+      class="color-scheme__example-text"
+      [ngStyle]="{
+        color: colorsData.colors?.extra?.color,
+        backgroundColor: colorsData.colors?.extra?.bgColor
+      }"
+    >
+      (extra)</span
+    >
+  </div>
+</section>

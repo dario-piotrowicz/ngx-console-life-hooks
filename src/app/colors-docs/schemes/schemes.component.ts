@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
 import { rawColorSchemes } from 'src/lib/colors';
-
-import { ColorSchemeData } from './color-scheme-data.model';
+import { ColorsData } from '../colors-data.model';
 
 @Component({
-  selector: 'app-color-schemes-doc',
-  templateUrl: './color-schemes-doc.component.html',
-  styleUrls: ['./color-schemes-doc.component.scss'],
+  selector: 'app-schemes',
+  templateUrl: './schemes.component.html',
+  styleUrls: ['./schemes.component.scss'],
 })
-export class ColorSchemesDocComponent {
-  colorSchemesData: ColorSchemeData[] = [];
+export class SchemesComponent {
+  colorSchemesData: ColorsData[] = [];
 
   constructor() {
     this.colorSchemesData = Object.keys(rawColorSchemes).map(

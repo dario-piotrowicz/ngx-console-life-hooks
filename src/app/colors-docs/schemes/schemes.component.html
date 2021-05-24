@@ -1,8 +1,7 @@
 <div class="color-schemes-doc">
   <h2 class="doc-title">Available color schemes</h2>
   <ng-container *ngFor="let colorScheme of colorSchemesData">
-    <app-color-scheme-doc [colorSchemeData]="colorScheme">
-    </app-color-scheme-doc>
+    <app-colors-data-view [colorsData]="colorScheme"> </app-colors-data-view>
     <div class="dividing-line"></div>
   </ng-container>
 </div>

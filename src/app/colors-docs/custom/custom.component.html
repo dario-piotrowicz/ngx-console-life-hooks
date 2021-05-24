@@ -10,7 +10,7 @@
     <li><i>arrow</i><small>(colors for the arrow)</small></li>
     <li><i>hook</i><small>(colors for the lifecycle hook's name)</small></li>
     <li>
-      <i>extra</i><small>(colors for the eventual extra informations)</small>
+      <i>extra</i><small>(colors for the eventual extra information)</small>
     </li>
   </ul>
   <p>
@@ -29,4 +29,11 @@
     valid css color ( like: <i>rbg</i>, <i>rgba</i>, <i>hex</i> or
     <i>named colors</i> ), if omitted the default devtools colors will we used.
   </p>
+  <h3 class="examples-title">Examples</h3>
+  <div *ngFor="let example of examples" class="example">
+    <pre><code>{{ example.code }}</code></pre>
+    <app-colors-data-view
+      [colorsData]="example.colorsData"
+    ></app-colors-data-view>
+  </div>
 </div>

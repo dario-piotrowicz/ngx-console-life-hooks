@@ -16,6 +16,10 @@
     .link {
       color: inherit;
 
+      &:not(:first-of-type) {
+        margin-left: 2ch;
+      }
+
       &:hover {
         opacity: 0.8;
         text-decoration: underline;
