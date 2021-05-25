@@ -47,7 +47,10 @@ const appRoutes: Routes = [
   },
   {
     path: '**',
-    redirectTo: '/',
+    loadChildren: () =>
+      import('./page-not-found/page-not-found.module').then(
+        (m) => m.PageNotFoundModule
+      ),
   },
 ];
 
