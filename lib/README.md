@@ -7,7 +7,7 @@ This is a very minimalistic library which contains a single
 class decorator that you can use to automatically log in the console a component's lifecycle hooks.
 \
 \
-All you need to do is to install the library (as a dev dependency since you in theory this decorator should only be useful for debugging purposes) and add the decorator to the components you're interested in.
+All you need to do is to install the library (as a dev dependency since in theory the decorator should be used just for debugging purposes) and add the decorator to the components you're interested in.
 
 \
 &NewLine;
@@ -59,7 +59,7 @@ _Note:_
 
 - if you set `componentName` to an empty string (or anything `falsy` for that matter) it will be ignored and the normal component name will be used instead
 - `include` and `exclude` are opposite options and cannot be used together, if you do so the decorator will throw an error
-- if you add a non-implemented hook to the `include` list the decorator will not log it unless the `logNonImplemented` option is set to `true` (an error will be logged instead)
+- if you add a non-implemented hook to the `include` list, the decorator will not log it unless the `logNonImplemented` option is set to `true` (an error will be logged instead)
 - if you specify a truthy `customColors` any possible value provided for `colorScheme` will be ignored
   \
   &NewLine;
